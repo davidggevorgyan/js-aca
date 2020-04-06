@@ -160,6 +160,51 @@ const taskSeven = ( number ) => {
 };
 
 
+/**
+ * Given an age, figure out whether someone is a baby(1 months - 12 months),
+ * toddler (1 year - 2 years),child(3 years - 12 years ), teenager(13 years - 17 years)
+ * or adult(18 years and more ). Also check that age in months is between 1 and 12.
+ * @param {number} count
+ * @param {string} measurement months or years
+ */
+const taskEight = ( count, measurement ) => {
+	let result = '';
+	if ( measurement.includes( 'month' ) && count > 12 ) {
+		throw new RangeError( 'Age in months should not exceed 12 months' );
+	} else if ( ( measurement.includes( 'month' ) && count <= 12 ) || ( measurement.includes( 'years' ) && count <= 1 ) ) {
+		result = 'baby';
+	} else if ( measurement.includes( 'year' ) && count <= 2 ) {
+		result = 'toddler';
+	} else if ( measurement.includes( 'year' ) && count <= 12 ) {
+		result = 'child';
+	} else if ( measurement.includes( 'year' ) && count <= 17 ) {
+		result = 'teenager';
+	} else if ( measurement.includes( 'year' ) && count > 17 ) {
+		result = 'adult';
+	}
+	return result;
+};
+
+/**
+ * Given three numbers. Sort them by the ascending order.
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ */
+const taskNine = ( a, b, c ) => {
+	if ( typeof ( a ) !== 'number'
+	|| typeof ( b ) !== 'number'
+	|| typeof ( c ) !== 'number' ) {
+		return NaN;
+	}
+
+	const max = Math.max( a, b, c );
+	const min = Math.min( a, b, c );
+	const mid = a + b + c - max - min;
+
+	return `${ min }, ${ mid }, ${ max }`;
+};
+
 module.exports = {
-	taskOne, taskTwo, taskThree, taskFour, taskFive, taskSix, taskSeven,
+	taskOne, taskTwo, taskThree, taskFour, taskFive, taskSix, taskSeven, taskEight, taskNine,
 };

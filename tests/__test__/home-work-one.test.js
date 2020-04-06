@@ -1,5 +1,5 @@
 const {
-	taskOne, taskTwo, taskThree, taskFour, taskFive, taskSix, taskSeven,
+	taskOne, taskTwo, taskThree, taskFour, taskFive, taskSix, taskSeven, taskEight, taskNine,
 } = require( '../../home-work-one' );
 
 test( 'task1: should return odd for 123', () => {
@@ -112,4 +112,24 @@ test( 'task7: should return "420 is a multiple of 3, 5 and 7." for ( 420 )', () 
 
 test( 'task7: should return "24 is a multiple of 3." for ( 24 )', () => {
 	expect( taskSeven( 24 ) ).toBe( '24 is a multiple of 3.' );
+} );
+
+test( 'task8: should return baby for ( 8, "months" )', () => {
+	expect( taskEight( 8, 'months' ) ).toBe( 'baby' );
+} );
+
+test( 'task8: should return adult for ( 45, "years" )', () => {
+	expect( taskEight( 45, 'years' ) ).toBe( 'adult' );
+} );
+
+test( 'task8: should return child for ( 3, "years" )', () => {
+	expect( taskEight( 3, 'years' ) ).toBe( 'child' );
+} );
+
+test( 'task9: should return 26, 45, 78 for ( 45 , 26, 78 )', () => {
+	expect( taskNine( 45, 26, 78 ) ).toBe( '26, 45, 78' );
+} );
+
+test( 'task9: should return -456, -23, 0 for ( -23, -456, 0 )', () => {
+	expect( taskNine( -23, -456, 0 ) ).toBe( '-456, -23, 0' );
 } );
