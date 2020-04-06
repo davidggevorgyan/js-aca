@@ -1,6 +1,9 @@
 # js-aca
 This repo is used for JS practicing
 
-![Node.js CI](https://github.com/davidggevorgyan/js-aca/workflows/Node.js%20CI/badge.svg)
+[![Tests](https://github.com/davidggevorgyan/js-aca/workflows/Tests/badge.svg)](https://github.com/davidggevorgyan/js-aca/actions?query=workflow%3Atest)
+
+
+
 
 All tasks have their tests. So you can correct implementataion based on the badge above
