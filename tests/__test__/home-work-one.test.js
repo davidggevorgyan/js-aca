@@ -1,6 +1,7 @@
 const {
 	taskOne, taskTwo, taskThree, taskFour, taskFive, taskSix, taskSeven, taskEight, taskNine,
 	taskTen, taskEleven, taskTwelve, taskThirteen, taskFourteen, taskFifteen, taskSeventeen,
+	taskEighteen,
 } = require( '../../home-work-one' );
 
 // -------------------------------------------- Task 1 --------------------------------------------
@@ -280,4 +281,18 @@ test( 'task17: should return "Please enter only positives" for ( "triangle", 0, 
 
 test( 'task17: should return "Please enter a valid figure name" for ( "circle", 1, 5 )', () => {
 	expect( taskSeventeen( 'circle', 1, 5 ) ).toBe( 'Please enter a valid figure name' );
+} );
+
+
+// -------------------------------------------- Task 18 --------------------------------------------
+test( 'task18: should return 5 for ( 5 )', () => {
+	expect( taskEighteen( 5 ) ).toBe( 5 );
+} );
+
+test( 'task18: should return 4 for ( 152 )', () => {
+	expect( taskEighteen( 152 ) ).toBe( 4 );
+} );
+
+test( 'task18: should return 6 for ( 4593653 )', () => {
+	expect( taskEighteen( 4593653 ) ).toBe( 6 );
 } );

@@ -381,6 +381,26 @@ const taskSeventeen = ( figure, a, b ) => {
 };
 
 
+/**
+ * Enter a number. Find the difference between its biggest and smallest digits.
+ * @param {number} number
+ */
+const taskEighteen = ( number ) => {
+	isNumber( number );
+	const numberString = String( Math.abs( number ) );
+	let min = 9;
+	let max = 0;
+	for ( let i = 0; i < numberString.length; i++ ) {
+		if ( numberString[i] > max ) {
+			max = numberString[i];
+		}
+		if ( numberString[i] < min ) {
+			min = numberString[i];
+		}
+	}
+	return max === min ? Number( max ) : Number( max - min );
+};
+
 module.exports = {
 	taskOne,
 	taskTwo,
@@ -398,4 +418,5 @@ module.exports = {
 	taskFourteen,
 	taskFifteen,
 	taskSeventeen,
+	taskEighteen,
 };
