@@ -356,8 +356,8 @@ const taskFifteen = ( number ) => {
  * Also check that entered numbers are positive. For the triangle entered
  * numbers are height and and base.
  * @param {string} figure rectangle or triangle
- * @param {number} a 
- * @param {number} b 
+ * @param {number} a
+ * @param {number} b
  */
 const taskSeventeen = ( figure, a, b ) => {
 	isString( figure );
@@ -373,7 +373,7 @@ const taskSeventeen = ( figure, a, b ) => {
 
 	let result;
 	if ( figure.includes( 'triangle' ) ) {
-		result = a * b / 2;
+		result = ( a * b ) / 2;
 	} else if ( figure.includes( 'rectangle' ) ) {
 		result = a * b;
 	}
