@@ -12,7 +12,7 @@
         "jest": "^25.2.7"
     },
     "scripts": {
-        "test": "jest"
+        "test": "jest --verbose"
     },
     "eslintConfig": {
         "extends": "airbnb-base",
