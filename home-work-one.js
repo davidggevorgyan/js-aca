@@ -1,16 +1,4 @@
-function isString( value ) {
-	if ( !( typeof value === 'string' || value instanceof String ) ) {
-		throw new TypeError( `Incorrect type of argument, expected to get string instead of ${ typeof ( value ) }` );
-	}
-	return true;
-}
-
-function isNumber( value ) {
-	if ( !( typeof value === 'number' && Number.isFinite( value ) ) ) {
-		throw new TypeError( `Incorrect type of argument, expected to get number instead of ${ typeof ( value ) }` );
-	}
-	return true;
-}
+const { isNumber, isString } = require( './type-validate' );
 
 /**
  * Given a number. Print “odd” if the number is odd and “even” if it’s even.
@@ -32,8 +20,7 @@ const taskOne = ( number ) => {
  * @param {number} b
  */
 const taskTwo = ( a, b ) => {
-	isNumber( a );
-	isNumber( b );
+	isNumber( a, b );
 
 	if ( Math.max( a, b ) % Math.min( a, b ) === 0 ) {
 		return 1;
@@ -49,8 +36,7 @@ const taskTwo = ( a, b ) => {
  * @param {number} b
  */
 const taskThree = ( a, b ) => {
-	isNumber( a );
-	isNumber( b );
+	isNumber( a, b );
 	if ( a + b >= 180 ) {
 		throw new RangeError( 'The sum of arguments must be less than 180' );
 	}
@@ -103,11 +89,7 @@ const taskFive = ( number ) => {
  * @param {number} e
  */
 const taskSix = ( a, b, c, d, e ) => {
-	isNumber( a );
-	isNumber( b );
-	isNumber( c );
-	isNumber( d );
-	isNumber( e );
+	isNumber( a, b, c, d, e );
 	return ( a + b + c + d + e ) / 5;
 };
 
@@ -192,9 +174,7 @@ const taskEight = ( count, measurement ) => {
  * @param {number} c
  */
 const taskNine = ( a, b, c ) => {
-	isNumber( a );
-	isNumber( b );
-	isNumber( c );
+	isNumber( a, b, c );
 
 	const max = Math.max( a, b, c );
 	const min = Math.min( a, b, c );
@@ -217,9 +197,7 @@ const taskNine = ( a, b, c ) => {
  * @param {number} c
  */
 const taskTen = ( a, b, c ) => {
-	isNumber( a );
-	isNumber( b );
-	isNumber( c );
+	isNumber( a, b, c );
 
 	const max = Math.max( a, b, c );
 	const min = Math.min( a, b, c );
@@ -241,9 +219,7 @@ const taskTen = ( a, b, c ) => {
  * @param {number} c
  */
 const taskEleven = ( a, b, c ) => {
-	isNumber( a );
-	isNumber( b );
-	isNumber( c );
+	isNumber( a, b, c );
 
 	let negativeCount = 0;
 
@@ -274,9 +250,7 @@ const taskEleven = ( a, b, c ) => {
  * @param {number} c
  */
 const taskTwelve = ( a, b, c ) => {
-	isNumber( a );
-	isNumber( b );
-	isNumber( c );
+	isNumber( a, b, c );
 
 	if ( a === 0 ) {
 		return 'Enter valid constants';
@@ -323,8 +297,7 @@ const taskThirteen = ( number ) => {
  * @param {number} number
  */
 const taskFourteen = ( digit, number ) => {
-	isNumber( digit );
-	isNumber( number );
+	isNumber( digit, number );
 
 	if ( String( number ).indexOf( String( digit ) ) === -1 ) {
 		return 'No';
@@ -361,8 +334,7 @@ const taskFifteen = ( number ) => {
  */
 const taskSeventeen = ( figure, a, b ) => {
 	isString( figure );
-	isNumber( a );
-	isNumber( b );
+	isNumber( a, b );
 
 	if ( a <= 0 || b <= 0 ) {
 		return 'Please enter only positives';
