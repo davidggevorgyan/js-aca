@@ -16,7 +16,16 @@ const isNumber = ( ...numbers ) => {
 	return true;
 };
 
+const isArray = ( ...arrays ) => {
+	arrays.forEach( ( element ) => {
+		if ( !( Array.isArray( element ) ) ) {
+			throw new TypeError( `Incorrect type of argument, expected to get Array instead of ${ typeof ( element ) }` );
+		}
+	} );
+};
+
 module.exports = {
 	isString,
 	isNumber,
+	isArray,
 };
