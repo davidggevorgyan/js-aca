@@ -139,6 +139,14 @@ test( 'task8: should return adult for ( 45, "years" )', () => {
 	expect( taskEight( 45, 'years' ) ).toBe( 'adult' );
 } );
 
+test( 'task8: should return toddler for ( 2, "years" )', () => {
+	expect( taskEight( 2, 'years' ) ).toBe( 'toddler' );
+} );
+
+test( 'task8: should return teenager for ( 16, "years" )', () => {
+	expect( taskEight( 16, 'years' ) ).toBe( 'teenager' );
+} );
+
 test( 'task8: should return child for ( 3, "years" )', () => {
 	expect( taskEight( 3, 'years' ) ).toBe( 'child' );
 } );
@@ -203,6 +211,10 @@ test( 'task11: should return unsigned for ( -14, 5, 0 )', () => {
 
 test( 'task11: should return + for ( -8, 9, -6 )', () => {
 	expect( taskEleven( -8, 9, -6 ) ).toBe( '+' );
+} );
+
+test( 'task11: should return + for ( -8, 9, -6 )', () => {
+	expect( taskEleven( 8, -9, -6 ) ).toBe( '+' );
 } );
 
 test( 'task11: should return - for ( 4, 19, -2 )', () => {

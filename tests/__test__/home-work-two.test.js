@@ -63,6 +63,10 @@ test( 'task3: should return "0, 1, 1, 2, 3, 5, 8, 13, 21, 34" for 45', () => {
 	expect( taskThree( 45 ) ).toEqual( [0, 1, 1, 2, 3, 5, 8, 13, 21, 34] );
 } );
 
+test( 'task3: should return "0" for 0', () => {
+	expect( taskThree( 0 ) ).toEqual( [0] );
+} );
+
 
 // -------------------------------------------- Task 4 --------------------------------------------
 test( 'task4: should return "Quotient is 2." for 1233', () => {
@@ -99,6 +103,10 @@ test( 'task9: should return [1, 1.8, 2.6, 3.4, 4.2, 5] for ( 1, 5, 6 )', () => {
 	expect( taskNine( 1, 5, 6 ) ).toEqual( [1, 1.8, 2.6, 3.4, 4.2, 5] );
 } );
 
+test( 'task9: should return [] for ( 1, 5, 0 )', () => {
+	expect( taskNine( 1, 5, 0 ) ).toEqual( [] );
+} );
+
 
 // -------------------------------------------- Task 10 --------------------------------------------
 test( 'task10: should return 4 for [23,  -98, 0, -456, 12, 8]', () => {
@@ -115,6 +123,14 @@ test( 'task10: should return 1 for [15, 10]', () => {
 
 test( 'task10: should return 0 for [10, 15]', () => {
 	expect( taskTen( [10, 15] ) ).toBe( 0 );
+} );
+
+test( 'task10: should throw exception for a string', () => {
+	function incorrectDataType() {
+		taskTen( 'string' );
+	}
+	expect( incorrectDataType ).toThrow( TypeError );
+	expect( incorrectDataType ).toThrowError( 'Incorrect type of argument, expected to get Array instead of string' );
 } );
 
 
