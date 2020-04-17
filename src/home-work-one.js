@@ -346,7 +346,7 @@ const taskSeventeen = ( figure, a, b ) => {
 	let result;
 	if ( figure.includes( 'triangle' ) ) {
 		result = ( a * b ) / 2;
-	} else if ( figure.includes( 'rectangle' ) ) {
+	} else {
 		result = a * b;
 	}
 	return `Square of the ${ figure } is ${ result }`;

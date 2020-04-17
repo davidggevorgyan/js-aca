@@ -214,7 +214,7 @@ test( 'task11: should return + for ( -8, 9, -6 )', () => {
 } );
 
 test( 'task11: should return + for ( -8, 9, -6 )', () => {
-	expect( taskEleven( 8, -9, -6 ) ).toBe( '+' );
+	expect( taskEleven( -8, -9, 6 ) ).toBe( '+' );
 } );
 
 test( 'task11: should return - for ( 4, 19, -2 )', () => {
