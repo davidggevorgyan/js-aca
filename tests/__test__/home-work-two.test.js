@@ -1,6 +1,6 @@
 const {
 	taskOne, taskTwo, taskThree, taskFour, taskNine, taskTen, taskEleven,
-} = require( '../../home-work-two' );
+} = require( '../../src/home-work-two' );
 
 // -------------------------------------------- Task 1 --------------------------------------------
 test( 'task1: should return yes for 401', () => {

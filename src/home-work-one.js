@@ -1,4 +1,4 @@
-const { isNumber, isString } = require( './type-validate' );
+const { isNumber, isString } = require( '../type-validate' );
 
 /**
  * Given a number. Print “odd” if the number is odd and “even” if it’s even.

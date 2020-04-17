@@ -2,7 +2,7 @@ const {
 	taskOne, taskTwo, taskThree, taskFour, taskFive, taskSix, taskSeven, taskEight, taskNine,
 	taskTen, taskEleven, taskTwelve, taskThirteen, taskFourteen, taskFifteen, taskSeventeen,
 	taskEighteen,
-} = require( '../../home-work-one' );
+} = require( '../../src/home-work-one' );
 
 // -------------------------------------------- Task 1 --------------------------------------------
 test( 'task1: should return odd for 123', () => {

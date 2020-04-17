@@ -1,4 +1,4 @@
-const { isNumber, isArray } = require( './type-validate' );
+const { isNumber, isArray } = require( '../type-validate' );
 
 
 /**
