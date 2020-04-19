@@ -1,4 +1,4 @@
-const { isNumber, isArray } = require( '../type-validate' );
+const { isNumber, isArray } = require( './type-validate' );
 
 
 /**
@@ -10,7 +10,7 @@ const taskOne = ( number ) => {
 	if ( number < 2 ) {
 		return 'no';
 	}
-	for ( let i = 2; i < number; i++ ) {
+	for ( let i = 2; i <= Math.sqrt( number ); i++ ) {
 		if ( number % i === 0 ) {
 			return 'no';
 		}
