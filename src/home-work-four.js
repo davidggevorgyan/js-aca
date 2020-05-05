@@ -46,8 +46,7 @@ function taskThree( arr ) {
 		}
 		return 0;
 	} );
-	const result = arr.filter( ( book ) => book.readStatus === true );
-	return result;
+	return arr.filter( ( book ) => book.readStatus === true );
 }
 
 /**
@@ -83,7 +82,8 @@ function taskFive( arr, result = {}, parent = null, keepOriginal = true ) {
 	if ( keepOriginal ) {
 		arrClone = JSON.parse( JSON.stringify( arr ) );
 	}
-	for ( let index = 0; index < arrClone.length; index++ ) {
+	let index = 0;
+	while ( index < arrClone.length ) {
 		if ( parent === arrClone[index].parent ) {
 			const child = arrClone[index].id;
 			arrClone.splice( index, 1 );
@@ -92,6 +92,7 @@ function taskFive( arr, result = {}, parent = null, keepOriginal = true ) {
 			result[child] = {};
 			taskFive( arrClone, result[child], child, false );
 		}
+		index += 1;
 	}
 	return result;
 }
