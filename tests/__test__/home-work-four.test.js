@@ -1,5 +1,5 @@
 const {
-	taskOne, taskTwo, taskThree, taskFour, taskFive, // taskSix, taskSeven,
+	taskOne, taskTwo, taskThree, taskFour, taskFive, taskSix, TaskSeven,
 } = require( '../../src/home-work-four' );
 
 // -------------------------------------------- Task 1 --------------------------------------------
@@ -97,9 +97,47 @@ test( 'task5: should return {{}} for [{}] ', () => {
 	expect( taskFive( arr ) ).toEqual( result );
 } );
 
-
 test( 'task5: should return {} for [] ', () => {
 	const arr = [];
 	const result = {};
 	expect( taskFive( arr ) ).toEqual( result );
+} );
+// -------------------------------------------- Task 6 --------------------------------------------
+// test( 'task6: should return [ [1, 2],  [1, 3],  [1, 4],  [2, 3],  [2, 4],  [3, 4] ] for [1, 2, 3, 4], 2 ', () => {
+// 	expect( taskSix( [1, 2, 3, 4], 2 ) ).toEqual( [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]] );
+// } );
+
+// test( 'task6: should return [ [1, 2, 3],  [1, 2, 4],  [1, 3, 4],  [2, 3, 4] ] for [1, 2, 3, 4], 3 ', () => {
+// 	expect( taskSix( [1, 2, 3, 4], 3 ) ).toEqual( [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]] );
+// } );
+
+test( 'task6: should return valid result= for [1, 2, 3, 4, 5], 3 ', () => {
+	const output = [[1, 2, 3], [1, 2, 4], [1, 2, 5], [1, 3, 4], [1, 3, 5],
+		[1, 4, 5], [2, 3, 4], [2, 3, 5], [2, 4, 5], [3, 4, 5]];
+	expect( taskSix( [1, 2, 3, 4, 5], 3 ) ).toEqual( output );
+} );
+
+// -------------------------------------------- Task 7 --------------------------------------------
+test( 'task7: should return ( 1, 2, 3 ) for (1, 4, 9).map(Math.sqrt)', () => {
+	const origin = new TaskSeven( 1, 4, 9 );
+	const result = origin.map( ( key, value ) => Math.sqrt( value ) );
+	expect( result.one ).toBe( 1 );
+	expect( result.two ).toBe( 2 );
+	expect( result.three ).toBe( 3 );
+} );
+
+test( 'task7: should return ( ONE, TWO, THREE ) for ( 1, 2, 3 ).map()', () => {
+	const origin = new TaskSeven( 1, 2, 3 );
+	const result = origin.map( ( key ) => key.toUpperCase() );
+	expect( result.one ).toBe( 'ONE' );
+	expect( result.two ).toBe( 'TWO' );
+	expect( result.three ).toBe( 'THREE' );
+} );
+
+test( 'task7: should return ( "Hello2", 125, 2 ) for ( "Hello", 123 , false ).map()', () => {
+	const origin = new TaskSeven( 'Hello', 123, false );
+	const result = origin.map( ( key, value ) => value + 2 );
+	expect( result.one ).toBe( 'Hello2' );
+	expect( result.two ).toBe( 125 );
+	expect( result.three ).toBe( 2 );
 } );

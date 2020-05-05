@@ -96,24 +96,53 @@ function taskFive( arr, result = {}, parent = null, keepOriginal = true ) {
 	return result;
 }
 
-// /**
-//  * Write a JavaScript function to get all possible subsets of given length of the given array.
-//  * Assume that all elements in the array are unique
-//  * @param {Array} arr
-//  * @param {Number} n
-//  */
-// function taskSix( arr, n ) {
+/**
+ * Write a JavaScript function to get all possible subsets of given length of the given array.
+ * Assume that all elements in the array are unique
+ * @param {Array} arr
+ * @param {Number} n
+ */
+function taskSix( arr, n ) {
+	const result = [];
+	for ( let i = 0; i < arr.length; i++ ) {
+		if ( n === 1 ) {
+			result.push( [arr[i]] );
+		} else {
+			const subRes = taskSix( arr.slice( i + 1, arr.length ), n - 1 );
+			for ( let j = 0; j < subRes.length; j++ ) {
+				const next = subRes[j];
+				next.unshift( arr[i] );
+				result.push( next );
+			}
+		}
+	}
+	return result;
 
-// }
+}
 
-// /**
-//  * Create constructor function which instances would be objects with
-//  * already implemented method "map" (like Array.map) .
-//  */
-// function taskSeven() {
+/**
+ * Create constructor function which instances would be objects with
+ * already implemented method "map" (like Array.map) .
+ */
+function TaskSeven( one, two, three ) {
+	this.one = one;
+	this.two = two;
+	this.three = three;
 
-// }
+
+	this.map = function map( fn ) {
+		const result = [];
+		// eslint-disable-next-line no-restricted-syntax
+		for ( const key in this ) {
+			if ( typeof ( this[key] ) !== 'function' ) {
+				result.push( fn( key, this[key] ) );
+			}
+		}
+		const [cOne, cTwo, cThree] = result;
+		return new TaskSeven( cOne, cTwo, cThree );
+	};
+}
 
 module.exports = {
-	taskOne, taskTwo, taskThree, taskFour, taskFive, // taskSix, taskSeven,
+	taskOne, taskTwo, taskThree, taskFour, taskFive, taskSix, TaskSeven,
 };
