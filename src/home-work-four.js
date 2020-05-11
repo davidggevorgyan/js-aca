@@ -135,7 +135,7 @@ function TaskSeven( entries ) {
 		const result = [];
 		// eslint-disable-next-line no-restricted-syntax
 		for ( const key in this ) {
-			if ( this[key] !== 'map' ) {
+			if ( key !== 'map' ) {
 				result.push( [key, fn( key, this[key] )] );
 			}
 		}
