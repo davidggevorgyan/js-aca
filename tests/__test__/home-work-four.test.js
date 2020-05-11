@@ -118,24 +118,24 @@ test( 'task6: should return valid result= for [1, 2, 3, 4, 5], 3 ', () => {
 } );
 
 // -------------------------------------------- Task 7 --------------------------------------------
-test( 'task7: should return ( 1, 2, 3 ) for (1, 4, 9).map(Math.sqrt)', () => {
-	const origin = new TaskSeven( 1, 4, 9 );
+test( 'task7: should return ( 1, 2, 3 ) for [[ "one", 1 ], ["two", 2], ["three", 3]].map(Math.sqrt)', () => {
+	const origin = new TaskSeven( [['one', 1], ['two', 4], ['three', 9]] );
 	const result = origin.map( ( key, value ) => Math.sqrt( value ) );
 	expect( result.one ).toBe( 1 );
 	expect( result.two ).toBe( 2 );
 	expect( result.three ).toBe( 3 );
 } );
 
-test( 'task7: should return ( ONE, TWO, THREE ) for ( 1, 2, 3 ).map()', () => {
-	const origin = new TaskSeven( 1, 2, 3 );
+test( 'task7: should return ( ONE, TWO, THREE ) for [ [ "one", 1 ], ["two", 2], ["three", 3] ].map()', () => {
+	const origin = new TaskSeven( [['one', 1], ['two', 4], ['three', 9]] );
 	const result = origin.map( ( key ) => key.toUpperCase() );
 	expect( result.one ).toBe( 'ONE' );
 	expect( result.two ).toBe( 'TWO' );
 	expect( result.three ).toBe( 'THREE' );
 } );
 
-test( 'task7: should return ( "Hello2", 125, 2 ) for ( "Hello", 123 , false ).map()', () => {
-	const origin = new TaskSeven( 'Hello', 123, false );
+test( 'task7: should return ( "Hello2", 125, 2 ) for ( [["one", "Hello" ], ["two", 123], ["three", false]] ).map(value + 2)', () => {
+	const origin = new TaskSeven( [['one', 'Hello'], ['two', 123], ['three', false]] );
 	const result = origin.map( ( key, value ) => value + 2 );
 	expect( result.one ).toBe( 'Hello2' );
 	expect( result.two ).toBe( 125 );

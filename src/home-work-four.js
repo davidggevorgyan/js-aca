@@ -125,22 +125,21 @@ function taskSix( arr, n ) {
  * Create constructor function which instances would be objects with
  * already implemented method "map" (like Array.map) .
  */
-function TaskSeven( one, two, three ) {
-	this.one = one;
-	this.two = two;
-	this.three = three;
-
+function TaskSeven( entries ) {
+	// eslint-disable-next-line no-restricted-syntax
+	for ( const [key, value] of entries ) {
+		this[key] = value;
+	}
 
 	this.map = function map( fn ) {
 		const result = [];
 		// eslint-disable-next-line no-restricted-syntax
 		for ( const key in this ) {
-			if ( typeof ( this[key] ) !== 'function' ) {
-				result.push( fn( key, this[key] ) );
+			if ( this[key] !== 'map' ) {
+				result.push( [key, fn( key, this[key] )] );
 			}
 		}
-		const [cOne, cTwo, cThree] = result;
-		return new TaskSeven( cOne, cTwo, cThree );
+		return new TaskSeven( result );
 	};
 }
 
