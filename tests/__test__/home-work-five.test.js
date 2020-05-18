@@ -60,14 +60,16 @@ test( 'task2: should return {} for [] ', () => {
 
 test( 'task2: should return tree like object', () => {
 	const arr = [
-		{ id: 'root', children: [1, 2, 3, 4, 5] },
+		{ id: 5, children: [7, 9] },
 		{ id: 1, children: [] },
 		{ id: 2, children: [] },
 		{ id: 3, children: [] },
 		{ id: 4, children: [] },
-		{ id: 5, children: [7, 9] },
 		{ id: 7, children: [] },
-		{ id: 9, children: [] },
+		{ id: 'root', children: [1, 2, 3, 4, 5] },
+		{ id: 9, children: ['10a', 11] },
+		{ id: '10a', children: [] },
+		{ id: 11, children: [] },
 	];
 	const result = {
 		root: {
@@ -77,7 +79,10 @@ test( 'task2: should return tree like object', () => {
 			4: {},
 			5: {
 				7: {},
-				9: {},
+				9: {
+					'10a': {},
+					11: {},
+				},
 			},
 		},
 	};
