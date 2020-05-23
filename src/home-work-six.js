@@ -20,11 +20,10 @@ function taskTwo( arr ) {
  * @param {String} str
  */
 function taskThree( str ) {
-	for ( let index = 0; index < str.length / 2 - 1; index++ ) {
-		if ( str[index].toLocaleLowerCase() !== str[str.length - index - 1].toLocaleLowerCase() ) {
+	for ( let index = 0; index < str.length / 2; index++ ) {
+		if ( str[index].toLowerCase() !== str[str.length - index - 1].toLowerCase() ) {
 			return false;
 		}
-
 	}
 	return true;
 }
@@ -35,7 +34,7 @@ function taskThree( str ) {
  * @param {Array} array
  */
 function taskFour( str, array ) {
-	return array.filter( ( element ) => element.split( '' ).sort().join() === str.split( '' ).sort().join() );
+	return array.filter( ( element ) => element.toLowerCase().split( '' ).sort().join() === str.toLowerCase().split( '' ).sort().join() );
 }
 
 
