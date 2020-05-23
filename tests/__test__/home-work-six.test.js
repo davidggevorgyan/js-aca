@@ -30,6 +30,9 @@ test( 'task3: should return true for ( a bad test )', () => {
 	expect( taskThree( 'a bad test' ) ).toBe( false );
 } );
 
+test( 'task3: should return false for ( god laol dog )', () => {
+	expect( taskThree( 'god laol dog' ) ).toBe( false );
+} );
 // -------------------------------------------- Task 4 --------------------------------------------
 test( 'task4: should return ["inlets"] for ( "listen", ["enlists", "google", "inlets", "banana"] )', () => {
 	expect( taskFour( 'listen', ['enlists', 'google', 'inlets', 'banana'] ) ).toEqual( ['inlets'] );
