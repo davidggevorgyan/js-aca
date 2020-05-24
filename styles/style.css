@@ -1,0 +1,64 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+h1 {
+  margin: 0 0;
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 40px 0;
+}
+
+a {
+  text-decoration:none;
+}
+
+.main {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.avatar {
+  max-width: 300px;
+  max-height: 300px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: block;
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: opacity 3.5s ease-in-out;
+}
+
+.avatar:hover {
+  opacity: 1;
+  transition: .5s;
+}
+
+.bio {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Raleway', sans-serif;
+  max-width: 500px;
+  margin: 10px 30px;
+}
+
+.job-title {
+  margin: 0 0;
+}
+
+.icon {
+    height: 52px;
+}
+
+.icon:hover {
+  filter: invert(53%) sepia(67%) saturate(2532%) hue-rotate(158deg) brightness(90%) contrast(102%);
+}
