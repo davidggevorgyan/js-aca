@@ -5,7 +5,7 @@
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
-  width: 380px;
+  width: 400px;
   border: 1px;
   border-color: black;
   border-style: solid;
@@ -15,7 +15,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  margin: 20px 0;
+  margin: 25px 0 10px;
 }
 
 .timer, .record{
@@ -34,6 +34,7 @@
   font-size: 3.2em;
   background-color: slategray;
   text-align: center;
+  cursor: pointer;
 }
 
 .busted {
@@ -57,8 +58,10 @@
   border-radius: 7%;
   border-color: azure;
   border-style: solid;
-  width: 30px;
-  height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
   text-align: center;
   font-size: 1.7em;
   font-family: Arial, Helvetica, sans-serif;
@@ -67,4 +70,12 @@
 
 .footer {
   min-height: 10px;
+}
+
+.settings {
+    cursor: pointer;
+    position:absolute;
+    top:0;
+    right:7px;
+    font-size: 1.5em;
 }

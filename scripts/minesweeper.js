@@ -40,29 +40,31 @@ function putNumbers( array ) {
 	}
 }
 
-function createEmptyField( size ) {
+function createEmptyField( width, height ) {
 	const field = [];
-	for ( let index = 0; index < size; index++ ) {
-		field.push( new Array( 10 ) );
-		for ( let subIndex = 0; subIndex < size; subIndex++ ) {
+	for ( let index = 0; index < height; index++ ) {
+		field.push( new Array( width ) );
+		for ( let subIndex = 0; subIndex < height; subIndex++ ) {
 			field[index][subIndex] = 0;
 		}
 	}
 	return field;
 }
 
-function putMines( array ) {
-	const mines = getRandomUniqueIntegersRange( 0, array.length ** 2, array.length );
+function putMines( array, minesCount ) {
+	const mines = getRandomUniqueIntegersRange( 0, array.length * array[0].length, minesCount );
 	mines.forEach( ( element ) => {
 		// eslint-disable-next-line no-param-reassign
-		array[Math.trunc( element / 10 )][Math.trunc( element % 10 )] = -1;
+		array[Math.trunc( element / array[0].length )][Math.trunc( element % array[0].length )] = -1;
 	} );
 }
 
-function createFieldWithData( size ) {
-	const field = createEmptyField( size );
-	putMines( field );
+function createFieldWithData( gameSettings ) {
+	const field = createEmptyField( gameSettings.width, gameSettings.height );
+	putMines( field, gameSettings.mines );
 	putNumbers( field );
+	// eslint-disable-next-line no-param-reassign
+	gameSettings.fieldData = field;
 	return field;
 }
 
@@ -89,16 +91,23 @@ function timerScheduler() {
 			timer.innerText = Number( timer.innerText ) + 1;
 		}
 	}
-
 }
 
 
 // -------------------- main.js --------------------
 
-function endGame() {
+function endGame( gameSettings ) {
 	document.querySelector( '.field' ).style.pointerEvents = 'none';
 	document.querySelector( '.new-game' ).innerText = String.fromCodePoint( '0x1F635' );
 	document.querySelector( '.new-game' ).classList.add( 'busted' );
+	for ( let yIndex = 0; yIndex < gameSettings.height; yIndex++ ) {
+		for ( let xIndex = 0; xIndex < gameSettings.width; xIndex++ ) {
+			if ( gameSettings.fieldData[yIndex][xIndex] === -1 ) {
+				document.querySelector( `#cell-${ yIndex }-${ xIndex } ` ).style.transition = 'background-color 1s ease-out';
+				document.querySelector( `#cell-${ yIndex }-${ xIndex } ` ).style.backgroundColor = 'red';
+			}
+		}
+	}
 }
 
 function winGame() {
@@ -107,67 +116,110 @@ function winGame() {
 	document.querySelector( '.new-game' ).classList.add( 'winner' );
 }
 
-function openCell( fieldData, index ) {
-	const cell = document.querySelector( `#cell-${ index }` );
-	const centerY = Math.trunc( index / 10 );
-	const centerX = index % 10;
-	const width = 10;
-	const height = 10;
-	if ( fieldData[centerY][centerX] === -1 ) {
+function openCell( gameSettings, x, y ) {
+	const cell = document.querySelector( `#cell-${ y }-${ x }` );
+	if ( gameSettings.fieldData[y][x] === -1 ) {
 		cell.innerText = String.fromCodePoint( '0x1F4A3' );
 		cell.style.backgroundColor = 'red';
-		endGame();
-	} else if ( fieldData[centerY][centerX] === 0 ) {
+		endGame( gameSettings );
+	} else if ( gameSettings.fieldData[y][x] === 0 ) {
 		cell.setAttribute( 'open', true );
 		cell.style.backgroundColor = 'silver';
 		cell.innerText = ' ';
-		for ( let y = -1; y <= 1; y++ ) {
-			for ( let x = -1; x <= 1; x++ ) {
-				const curY = centerY + y;
-				const curX = centerX + x;
-				if ( curY >= 0 && curX >= 0 && curX < width && curY < height && document.querySelector( `#cell-${ curY * 10 + curX }` ).attributes.open === undefined ) {
-					openCell( fieldData, curY * 10 + curX );
+		for ( let yIndex = -1; yIndex <= 1; yIndex++ ) {
+			for ( let xIndex = -1; xIndex <= 1; xIndex++ ) {
+				const curY = y + yIndex;
+				const curX = x + xIndex;
+				if ( curY >= 0 && curX >= 0 && curX < gameSettings.width && curY < gameSettings.height && !document.querySelector( `#cell-${ curY }-${ curX }` ).hasAttribute( 'open' ) ) {
+					openCell( gameSettings, curX, curY );
 				}
 			}
 		}
 	} else {
 		cell.setAttribute( 'open', true );
 		cell.style.backgroundColor = 'silver';
-		cell.innerText = fieldData[Math.trunc( index / 10 )][index % 10];
+		cell.innerText = gameSettings.fieldData[y][x];
 	}
 
-	if ( document.querySelectorAll( '[open]' ).length >= 90 ) {
+	if ( document.querySelectorAll( '[open]' ).length >= gameSettings.width * gameSettings.height - gameSettings.mines ) {
 		winGame();
 	}
 }
 
 
-function createField( fieldSize = 10 ) {
-	const fieldData = createFieldWithData( fieldSize );
-	for ( let index = 0; index < fieldSize ** 2; index++ ) {
-		const cell = document.createElement( 'div' );
-		cell.setAttribute( 'class', 'flex-cell' );
-		cell.setAttribute( 'id', `cell-${ index }` );
-		cell.addEventListener( 'click', () => openCell( fieldData, index ) );
-		cell.addEventListener( 'contextmenu', ( ev ) => {
-			ev.preventDefault();
-			if ( !cell.hasAttribute( 'open' ) && cell.innerText === '' ) {
-				cell.innerText = String.fromCodePoint( '0x1F4CD' );
-			} else if ( !cell.hasAttribute( 'open' ) && cell.innerText !== '' ) {
-				cell.innerText = '';
-			}
-			return false;
-		}, false );
-		document.querySelector( '.field' ).append( cell );
+function createField( gameSettings ) {
+	const field = document.querySelector( '.field' );
+
+	createFieldWithData( gameSettings );
+	for ( let hIndex = 0; hIndex < gameSettings.height; hIndex++ ) {
+		for ( let wIndex = 0; wIndex < gameSettings.width; wIndex++ ) {
+			const cell = document.createElement( 'div' );
+			cell.setAttribute( 'class', 'flex-cell' );
+			cell.setAttribute( 'id', `cell-${ hIndex }-${ wIndex }` );
+			document.querySelector( '.field' ).append( cell );
+		}
 	}
+	field.addEventListener( 'click', ( ev ) => {
+		if ( ev.target.id.includes( 'cell' ) ) {
+			const coordinates = ev.target.id.split( '-' );
+			const x = +coordinates.pop();
+			const y = +coordinates.pop();
+			openCell( gameSettings, x, y );
+		}
+	} );
+	field.addEventListener( 'contextmenu', ( ev ) => {
+		ev.preventDefault();
+		const cell = ev.target;
+		if ( !cell.hasAttribute( 'open' ) && cell.innerText === '' && ev.target.id.includes( 'cell' ) ) {
+			cell.innerText = String.fromCodePoint( '0x1F4CD' );
+		} else if ( !cell.hasAttribute( 'open' ) && cell.innerText !== '' && ev.target.id.includes( 'cell' ) ) {
+			cell.innerText = '';
+		}
+		return false;
+	} );
 }
 
-function newGame() {
+function newGame( myParam ) {
+	const gameSettings = {};
+	switch ( myParam ) {
+	case 'beginner':
+		gameSettings.nextLevel = 'intermediate';
+		gameSettings.width = 10;
+		gameSettings.height = 10;
+		gameSettings.mines = 10;
+		break;
+	case 'intermediate':
+		gameSettings.nextLevel = 'expert';
+		gameSettings.width = 16;
+		gameSettings.height = 16;
+		gameSettings.mines = 40;
+		break;
+	case 'expert':
+		gameSettings.nextLevel = 'beginner';
+		gameSettings.level = 2;
+		gameSettings.width = 30;
+		gameSettings.height = 16;
+		gameSettings.mines = 99;
+		break;
+	default:
+		gameSettings.nextLevel = 'intermediate';
+		gameSettings.width = 10;
+		gameSettings.height = 10;
+		gameSettings.mines = 10;
+	}
+	createField( gameSettings );
 	const newGameButton = document.querySelector( '.new-game' );
-	newGameButton.addEventListener( 'click', () => {
+	const settings = document.querySelector( '.settings' );
+	const main = document.querySelector( '.main' );
+	main.style.width = `${ ( gameSettings.width ) * 36 }px`;
 
-		document.querySelector( '.field' ).innerHTML = '';
-		document.querySelector( '.field' ).style.pointerEvents = null;
+	newGameButton.addEventListener( 'click', () => {
+		const oldField = document.querySelector( '.field' );
+
+		const newField = document.createElement( 'div' );
+		newField.setAttribute( 'class', 'field' );
+
+		main.replaceChild( newField, oldField );
 
 		newGameButton.innerText = String.fromCodePoint( '0x1F603' );
 		newGameButton.classList.remove( 'busted' );
@@ -176,12 +228,18 @@ function newGame() {
 		const timer = document.querySelector( '.timer' );
 		clearInterval( timer.getAttribute( 'timerID' ) );
 
-		createField();
+		createField( gameSettings );
 		timerScheduler();
 	} );
+
+	settings.setAttribute( 'onclick', `location.href='?level=${ gameSettings.nextLevel }';` );
+
 }
 
 
-createField();
-newGame();
+const urlParams = new URLSearchParams( window.location.search );
+const myParam = urlParams.get( 'level' );
+
+
+newGame( myParam );
 timerScheduler();
