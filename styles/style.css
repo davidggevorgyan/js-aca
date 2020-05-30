@@ -16,9 +16,9 @@ a {
 }
 
 .main {
-  justify-content: center;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -43,9 +43,9 @@ a {
 }
 
 .bio {
-  justify-content: space-between;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   font-family: 'Raleway', sans-serif;
   max-width: 500px;
   margin: 10px 30px;
