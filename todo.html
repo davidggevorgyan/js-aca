@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>ToDo List</title>
+	<link rel="stylesheet" href="./styles/todo.css">
+	<link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/png">
+	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-replace-svg="nest"></script>
+</head>
+<body>
+	<div class="background"></div>
+	<div class="main">
+		<div class="add-task">
+			<p class="main-label">TASKS</p>
+			<input class="add-task-field" type="text" placeholder="Take a Note" name="new"><input type="button" name="add" class="add-task-button" value="Add Task">
+		</div>		
+		<div class="todo">
+			<div class="navigation">
+				<div class="filters">
+					<div class="filter">All</div>
+					<div class="filter">Active</div>
+					<div class="filter">Completed</div>
+				</div>
+				<input class="search-field" type="search" placeholder="Search Task" name="search">
+			</div>
+			<div class="tasks">
+
+			</div>
+		</div>
+	</div>
+	<script src="./scripts/todo.js"></script>
+</body>
+</html>
