@@ -108,6 +108,7 @@ body {
 	font-size: 14px;
 	font-weight: bold;
 	min-width: 100px;
+	border: 1px solid rgb(238, 240, 242);
 }
 
 .filter:hover  {
