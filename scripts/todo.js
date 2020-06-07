@@ -10,6 +10,14 @@ let filter = null;
 tasks.push( new NewTask( 'The sorting units for plastic building blocks work in the opposite way to Noah\'s bug filter. The top level has the widest gaps in the mesh. At each level of the box the gaps become smaller. When an unsorted collection of blocks is tipped into the top of the box and the box is shaken, the largest blocks stay at the top levels and the smallest blocks fall through to the bottom. When you take the levels apart, you can easily access the different sized blocks' ) );
 tasks.push( new NewTask( 'Create a \'quality view\' that people can go to and quickly spot any problems/action items. I understand that quality is a \'complex\' topic usually defined by whatever the company lacks the most right now and as we lack in many area' ) );
 
+function debounce( func, wait ) {
+	let timeout;
+	return ( ...args ) => {
+		const context = this;
+		clearTimeout( timeout );
+		timeout = setTimeout( () => func.apply( context, args ), wait );
+	};
+}
 
 function renderTasks( tasksList = tasks ) {
 	let tasksListToRender = tasksList;
@@ -121,8 +129,9 @@ function searchTask() {
 			),
 		);
 	};
-	search.addEventListener( 'search', filterFunction );
-	search.addEventListener( 'keyup', filterFunction );
+	const debouncedFilterFunction = debounce( filterFunction, 200 );
+	search.addEventListener( 'search', debouncedFilterFunction );
+	search.addEventListener( 'keyup', debouncedFilterFunction );
 }
 
 function filterClick() {
@@ -149,7 +158,6 @@ function filterClick() {
 		}
 	} );
 }
-
 
 function main() {
 	addTaskClick();
