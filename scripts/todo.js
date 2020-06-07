@@ -129,22 +129,24 @@ function filterClick() {
 	const filters = document.querySelector( '.filters' );
 
 	filters.addEventListener( 'click', ( event ) => {
-		document.querySelectorAll( '.filter' ).forEach( ( element ) => {
-			element.setAttribute( 'class', 'filter' );
-		} );
-		event.target.setAttribute( 'class', 'filter active' );
-		switch ( event.target.innerText ) {
-		case 'Active':
-			filter = 'open';
-			break;
-		case 'Completed':
-			filter = 'completed';
-			break;
-		default:
-			filter = null;
+		if ( event.target.getAttribute( 'class' ) === 'filter' ) {
+			document.querySelectorAll( '.filter' ).forEach( ( element ) => {
+				element.setAttribute( 'class', 'filter' );
+			} );
+			event.target.setAttribute( 'class', 'filter active' );
+			switch ( event.target.innerText ) {
+			case 'Active':
+				filter = 'open';
+				break;
+			case 'Completed':
+				filter = 'completed';
+				break;
+			default:
+				filter = null;
+			}
+			document.querySelector( '.search-field' ).value = '';
+			renderTasks();
 		}
-		document.querySelector( '.search-field' ).value = '';
-		renderTasks();
 	} );
 }
 
