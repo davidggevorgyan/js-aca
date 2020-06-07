@@ -111,6 +111,14 @@ body {
 	border: 1px solid rgb(238, 240, 242);
 }
 
+
+.active  {
+	color: rgb(40, 65, 170);;
+	cursor: pointer;
+	border-radius: 5px;
+	border: 1px solid rgb(40, 65, 170);
+}
+
 .filter:hover  {
 	color: rgb(40, 65, 170);;
 	cursor: pointer;

@@ -127,7 +127,12 @@ function searchTask() {
 
 function filterClick() {
 	const filters = document.querySelector( '.filters' );
+
 	filters.addEventListener( 'click', ( event ) => {
+		document.querySelectorAll( '.filter' ).forEach( ( element ) => {
+			element.setAttribute( 'class', 'filter' );
+		} );
+		event.target.setAttribute( 'class', 'filter active' );
 		switch ( event.target.innerText ) {
 		case 'Active':
 			filter = 'open';
