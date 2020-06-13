@@ -2,7 +2,7 @@ const Person = require( './person' );
 
 class Student extends Person {
 
-	examsData = [];
+	#examsData = [];
 
 	constructor( firstName, lastName, gender, age, programs, year, fee ) {
 		super( firstName, lastName, gender, age );
@@ -61,8 +61,8 @@ class Student extends Person {
 			grade,
 			program,
 		};
-		this.examsData.push( examResult );
-		const currentYearPassedExamsCount = this.examsData.reduce(
+		this.#examsData.push( examResult );
+		const currentYearPassedExamsCount = this.#examsData.reduce(
 			( accumulator, currentValue ) => {
 				if ( currentValue.year === this.year && currentValue.grade >= 50 ) {
 					// eslint-disable-next-line no-param-reassign

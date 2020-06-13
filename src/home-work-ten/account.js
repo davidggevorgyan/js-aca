@@ -1,12 +1,12 @@
 class Account {
 
-	static nextID = 0;
+	static #nextID = 0;
 
 	constructor( name, balance ) {
 		this.name = name;
 		this.balance = balance;
-		this._id = Account.nextID;
-		Account.nextID += 1;
+		this._id = Account.#nextID;
+		Account.#nextID += 1;
 	}
 
 	get name() {
