@@ -6,10 +6,10 @@
     "author": "David Gevorgyan <davidggevorgyan@gmail.com>",
     "homepage": "https://github.com/davidggevorgyan/js-aca",
     "devDependencies": {
-        "eslint": "^6.8.0",
-        "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-plugin-import": "^2.20.2",
-        "jest": "^25.2.7"
+        "eslint": "^7.2.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-plugin-import": "^2.21.2",
+        "jest": "^26.0.1"
     },
     "scripts": {
         "test": "jest --verbose"
@@ -22,6 +22,7 @@
             "jest": true,
             "browser": true
         },
+        "parser": "babel-eslint",
         "rules": {
             "indent": [
                 "error",
@@ -52,7 +53,16 @@
             "template-curly-spacing": [
                 "error",
                 "always"
+            ],
+            "no-underscore-dangle": [
+                "error",
+                {
+                    "allowAfterThis": true
+                }
             ]
         }
+    },
+    "dependencies": {
+        "babel-eslint": "^10.1.0"
     }
 }

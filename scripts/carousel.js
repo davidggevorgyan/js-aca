@@ -14,7 +14,6 @@ const images = [
 ];
 let position = 0;
 
-
 function changeImage( index ) {
 	document.querySelector( '.main' ).style.backgroundImage = `url("${ images[index] }"`;
 }
@@ -45,7 +44,6 @@ function nextListener() {
 	document.querySelector( '.right-button' ).addEventListener( 'click', next );
 }
 
-
 function previous() {
 	if ( position <= 0 ) {
 		position = images.length - 1;
@@ -55,7 +53,6 @@ function previous() {
 	changeImage( position );
 	updatePositionBar( position );
 }
-
 
 function previousListener() {
 	document.querySelector( '.left-button' ).addEventListener( 'click', previous );
@@ -74,7 +71,6 @@ function playPause() {
 		}
 	} );
 }
-
 
 function main() {
 	nextListener();
