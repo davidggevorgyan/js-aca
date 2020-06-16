@@ -51,7 +51,7 @@ test( 'task2: should not be possible to set a new ID for existing customer', () 
 	const a = new Account( 'Test', 123 );
 	expect( () => {
 		a.id = 5;
-	} ).toThrow( 'Cannot set property id of [object Object] which has only a getter' ); // TODO ask object
+	} ).toThrow( 'Cannot set property id of [object Object] which has only a getter' );
 } );
 
 test( 'task2: should add credit', () => {

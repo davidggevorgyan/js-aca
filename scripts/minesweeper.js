@@ -1,4 +1,3 @@
-
 // -------------------- data.js --------------------
 function getRandomUniqueIntegersRange( min, max, length ) {
 	if ( max - min < length ) {
@@ -78,7 +77,6 @@ function timerScheduler() {
 	const record = document.querySelector( '.record' );
 	timer.innerText = 0;
 
-
 	function startTimer() {
 		if ( document.querySelector( '.new-game.winner' ) !== null ) {
 			clearInterval( timer.getAttribute( 'timerID' ) );
@@ -92,7 +90,6 @@ function timerScheduler() {
 		}
 	}
 }
-
 
 // -------------------- main.js --------------------
 
@@ -145,7 +142,6 @@ function openCell( gameSettings, x, y ) {
 		winGame();
 	}
 }
-
 
 function createField( gameSettings ) {
 	const field = document.querySelector( '.field' );
@@ -236,10 +232,8 @@ function newGame( myParam ) {
 
 }
 
-
 const urlParams = new URLSearchParams( window.location.search );
 const myParam = urlParams.get( 'level' );
-
 
 newGame( myParam );
 timerScheduler();
