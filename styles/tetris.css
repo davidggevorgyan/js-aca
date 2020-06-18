@@ -1,0 +1,54 @@
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+.field {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.flex-cell {
+  flex: 0 0 9%; 
+  margin: 1px;
+  border: 1px;
+  border-radius: 7%;
+  border-color: azure;
+  border-style: solid;
+  min-width: 30px;
+  min-height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  text-align: center;
+  font-size: 1.7em;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: gainsboro;
+}
+
+
+.menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  margin: 25px 0 10px;
+  font-size: xx-large;
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-size: 160px;
+  margin: 25px 0 10px;
+  z-index: 100;
+}
