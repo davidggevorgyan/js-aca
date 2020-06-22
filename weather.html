@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+	<meta charset="UTF-8" />
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<title>Weather</title>	
+	<link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/png">
 	<link rel="stylesheet" href="./styles/weather.css" />
 	
 </head>
@@ -26,12 +28,10 @@
 				<div class="city"></div>
 				<div class="time"></div>
 				<div class="description"></div>
-				<div class="temperature">
-					<div class="icon">
-						<img>
-					</div>
+				<div class="data">
 					<div class="now-temperature">
-						<div class="now-temperature-value"></div>
+						<img class="big-icon">
+						<div class="big-value"></div>
 						<div class="measurement">°Celsius</div>
 					</div>
 					
@@ -63,6 +63,7 @@
 					</div>
 				</div>
 			</div>
+			<div class="forecast"></div>
 		</div>
 	</div>
 
