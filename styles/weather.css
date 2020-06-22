@@ -1,0 +1,164 @@
+html, body {
+  margin:0px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.weather {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  
+  background-color: black;
+  opacity: 0.8;
+  padding: 40px;
+}
+
+
+.now {
+  font-size: 25px;
+  visibility: hidden;
+}
+
+.city {
+  font-size: 70px;
+}
+
+.description {
+  margin-left: 15px;
+  text-transform: capitalize;
+}
+
+.time {
+  margin-left: 15px;
+}
+
+.temperature {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon img {
+  object-fit: none;
+  object-position: center;
+  width: 140px;
+  height: 140px;
+}
+
+.now-temperature {
+  display: flex;
+}
+
+.now-temperature-value {
+  font-size: 120px;
+  margin-left: 10px;
+}
+
+.measurement {
+  align-self: baseline;
+}
+
+.details {
+  display: flex;
+  flex-flow: row wrap;  
+  padding-left: 20px;
+}
+
+.column {
+  flex: 50%;
+  white-space: nowrap;
+}
+
+.small-icon {
+  height: 20px;
+  filter: invert(100%) sepia(73%) saturate(16%) hue-rotate(253deg) brightness(104%) contrast(103%);
+}
+
+/* Background section */
+.bg-lazy {
+  height: 100vh;
+  width: 100vw;
+  transition: opacity 1s ease-out;
+}
+
+.bg-loading {
+  opacity: 0;
+}
+
+/* Alert banner section */
+.alert {
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  top: 32px;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  height: 22px;
+  padding: 24px;
+  font-size: 14pt;
+  vertical-align: middle;
+  background-color: #f44336;
+  opacity: 0.8;
+}
+
+.alert:hover {
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.alert-text {
+  display: inline-block;
+}
+
+.alert-close {
+  margin-left: 15px;
+  float: right;
+}
+
+.alert-close:hover {
+  cursor: pointer;
+  color: black;
+}
+
+/* Loader section */
+.spinner {
+  height: 100%;
+  text-align: center;
+
+}
+
+.spinner > div {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+

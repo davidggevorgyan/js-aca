@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+	<title>Weather</title>	
+	<link rel="stylesheet" href="./styles/weather.css" />
+	
+</head>
+
+<body>
+	<div class="alert">
+		<span class="alert-close" onclick="this.parentElement.style.visibility='hidden';">×</span>
+		<div class="alert-text"></div>
+	</div>
+	<div class="main">
+
+		<div class="bg-lazy bg-loading"></div>
+		<div class="weather">
+			<div class="spinner">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+			<div class="now">
+				<div class="city"></div>
+				<div class="time"></div>
+				<div class="description"></div>
+				<div class="temperature">
+					<div class="icon">
+						<img>
+					</div>
+					<div class="now-temperature">
+						<div class="now-temperature-value"></div>
+						<div class="measurement">°Celsius</div>
+					</div>
+					
+					<div class="details">
+						<div class="column humidity">
+							<img class="small-icon" src="./assets/icons/humidity.svg" title="Humidity">
+							<span class="value"></span>
+						</div>
+						<div class="column pressure">
+							<img class="small-icon" src="./assets/icons/pressure.svg" title="Pressure">
+							<span class="value"></span>
+						</div>
+						<div class="column visibility">
+							<img class="small-icon" src="./assets/icons/visibility.svg" title="Visibility">
+							<span class="value"></span>
+						</div>
+						<div class="column wind">
+							<img class="small-icon" src="./assets/icons/wind.svg" title="Wind Speed">
+							<span class="value"></span>
+						</div>
+						<div class="column sunrise">
+							<img class="small-icon" src="./assets/icons/sunrise.svg" title="Sunrise time">
+							<span class="value"></span>
+						</div>
+						<div class="column sunset">
+							<img class="small-icon" src="./assets/icons/sunset.svg" title="Sunset time">
+							<span class="value"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.js"></script>
+	<script src="./scripts/weather.js" type="text/javascript"></script>
+</body>
+
+</html>
