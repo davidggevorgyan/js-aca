@@ -1,4 +1,13 @@
+function clearLoader() {
+	document.querySelector( '.spinner' ).style.display = 'none';
+}
+
 function showErrorBanner( error ) {
+	if ( error.PERMISSION_DENIED ) {
+		clearLoader();
+		document.querySelector( '.weather' ).innerText = 'This application requires access to your geolocation';
+		document.querySelector( '.weather' ).style.textAlign = 'center';
+	}
 	document.querySelector( '.alert-text' ).innerText = error.message;
 	document.querySelector( '.alert' ).style.visibility = 'visible';
 }
@@ -85,7 +94,7 @@ function getWeather( pos ) {
 			}
 			Promise.all( jsonPromises )
 				.then( ( forecasts ) => {
-					document.querySelector( '.spinner' ).style.display = 'none';
+					clearLoader();
 					renderCurrentWeather( forecasts[0] );
 					renderForecast( forecasts[1].daily );
 				} )
