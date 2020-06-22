@@ -27,7 +27,7 @@ function renderCurrentWeather( data ) {
 	document.querySelector( '.city' ).innerText = data.name;
 	document.querySelector( '.time' ).innerText = moment( data.dt * 1000 ).format( 'MMMM Do YYYY, H:mm' );
 	document.querySelector( '.description' ).innerText = data.weather[0].description;
-	document.querySelector( '.big-icon' ).src = `http://openweathermap.org/img/wn/${ data.weather[0].icon }@4x.png`;
+	document.querySelector( '.big-icon' ).src = `https://openweathermap.org/img/wn/${ data.weather[0].icon }@4x.png`;
 	document.querySelector( '.big-value' ).innerText = `${ data.main.temp } `;
 
 	document.querySelector( '.humidity .value' ).innerText = `${ data.main.humidity } %`;
@@ -47,7 +47,7 @@ function renderForecast( data ) {
 		day.appendChild( date );
 
 		const icon = document.createElement( 'img' );
-		icon.setAttribute( 'src', `http://openweathermap.org/img/wn/${ element.weather[0].icon }.png` );
+		icon.setAttribute( 'src', `https://openweathermap.org/img/wn/${ element.weather[0].icon }.png` );
 		icon.setAttribute( 'title', element.weather[0].description );
 		day.appendChild( icon );
 
