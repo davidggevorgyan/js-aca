@@ -1,4 +1,4 @@
-class Field {
+export default class Field {
 
 	constructor( height, width ) {
 		this.height = height;

@@ -1,4 +1,4 @@
-class Figure {
+export default class Figure {
 
 	static #types = [
 		[

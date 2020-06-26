@@ -1,3 +1,6 @@
+import Field from './field.js';
+import Figure from './figure.js';
+
 const field = new Field( 20, 10 );
 field.renderField();
 
