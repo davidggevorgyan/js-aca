@@ -28,6 +28,10 @@
                 "error",
                 "tab"
             ],
+            "import/extensions": [
+                "error",
+                "ignorePackages"
+            ],
             "no-plusplus": [
                 "error",
                 {

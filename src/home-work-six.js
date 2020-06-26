@@ -6,7 +6,6 @@ function taskOne( arr ) {
 	return arr.length === new Set( arr ).size;
 }
 
-
 /**
  * Given an array of numbers. Find the sum of numbers’ quadratic which are even.
  * @param {Array} arr
@@ -36,7 +35,6 @@ function taskThree( str ) {
 function taskFour( str, array ) {
 	return array.filter( ( element ) => element.toLowerCase().split( '' ).sort().join() === str.toLowerCase().split( '' ).sort().join() );
 }
-
 
 module.exports = {
 	taskOne, taskTwo, taskThree, taskFour,
