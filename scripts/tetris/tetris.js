@@ -44,4 +44,4 @@ document.onkeydown = function keyListener( e ) {
 	e.preventDefault(); // prevent the default action (scroll / move caret)
 };
 
-document.querySelector( '.main' ).setAttribute( 'timerID', setInterval( move, 500 ) );
+document.querySelector( '#main' ).setAttribute( 'timerID', setInterval( move, 500 ) );

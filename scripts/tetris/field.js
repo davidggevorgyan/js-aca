@@ -18,7 +18,7 @@ export default class Field {
 	}
 
 	renderField() {
-		const field = document.querySelector( '.field' );
+		const field = document.querySelector( '#field' );
 		while ( field.firstChild ) {
 			field.removeChild( field.firstChild );
 		}
@@ -113,7 +113,7 @@ export default class Field {
 				this.fieldData.splice( index, 1 );
 				this.fieldData.unshift( Array( 10 ).fill( 0 ) );
 				this.renderField( this.fieldData );
-				document.querySelector( '.score' ).innerHTML = +document.querySelector( '.score' ).innerText + 100;
+				document.querySelector( '#score' ).innerHTML = +document.querySelector( '#score' ).innerText + 100;
 			}
 		} );
 	}
@@ -124,8 +124,8 @@ export default class Field {
 				if ( this.fieldData[figure.y + y][figure.x + x] === 1 ) {
 					document.onkeydown = null;
 					document.querySelector( 'body' ).style.backgroundColor = 'brown';
-					document.querySelector( '.game-over' ).style.display = '';
-					clearInterval( document.querySelector( '.main' ).getAttribute( 'timerID' ) );
+					document.querySelector( '#game-over' ).style.display = '';
+					clearInterval( document.querySelector( '#main' ).getAttribute( 'timerID' ) );
 					return true;
 				}
 			}

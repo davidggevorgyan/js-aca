@@ -1,4 +1,4 @@
-.main {
+#main {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10,7 +10,7 @@
   border-style: solid;
 }
 
-.field {
+#field {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -34,7 +34,7 @@
 }
 
 
-.menu {
+#menu {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
@@ -42,7 +42,7 @@
   font-size: xx-large;
 }
 
-.game-over {
+#game-over {
   position: absolute;
   top: 50%;
   left: 50%;
