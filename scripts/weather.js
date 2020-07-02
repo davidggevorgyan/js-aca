@@ -37,7 +37,7 @@ function renderCurrentWeather( data ) {
 	document.querySelector( '.time' ).innerText = moment( data.dt * 1000 ).format( 'MMMM Do YYYY, H:mm' );
 	document.querySelector( '.description' ).innerText = data.weather[0].description;
 	document.querySelector( '.big-icon' ).src = `https://openweathermap.org/img/wn/${ data.weather[0].icon }@4x.png`;
-	document.querySelector( '.big-value' ).innerText = `${ data.main.temp } `;
+	document.querySelector( '.big-value' ).innerText = `${ data.main.temp.toFixed( 1 ) } `;
 
 	document.querySelector( '.humidity .value' ).innerText = `${ data.main.humidity } %`;
 	document.querySelector( '.pressure .value' ).innerText = `${ data.main.pressure } hPa`;

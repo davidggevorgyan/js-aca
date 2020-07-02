@@ -102,7 +102,6 @@ function deleteTaskClick() {
 	} );
 }
 
-
 function markDone( id, value ) {
 	tasks[id].isDone = value;
 }
