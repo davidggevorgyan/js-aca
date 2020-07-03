@@ -15,7 +15,7 @@
   width: 60%;
   background-color: black;
   opacity: 0.8;
-  padding: 40px;
+  padding: 2.5rem;
 }
 
 
@@ -29,12 +29,12 @@
 }
 
 .description {
-  margin-left: 15px;
+  margin-left: 1rem;
   text-transform: capitalize;
 }
 
 .time {
-  margin-left: 15px;
+  margin-left: 1rem;
 }
 
 .data {
@@ -47,8 +47,8 @@
 .big-icon {
   object-fit: none;
   object-position: center;
-  width: 140px;
-  height: 140px;
+  width: 8.75rem;
+  height: 8.75rem;
 }
 
 .now-temperature {
@@ -57,7 +57,7 @@
 
 .big-value {
   font-size: 7.5rem;
-  margin-left: 5px;
+  margin-left: .3rem;
 }
 
 .measurement {
@@ -68,7 +68,7 @@
 .details {
   display: flex;
   flex-flow: row wrap;  
-  padding-left: 20px;
+  padding-left: 1.5rem;
   flex: 2;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .small-icon {
-  height: 20px;
+  height: 1.25rem;
   filter: invert(100%) sepia(73%) saturate(16%) hue-rotate(253deg) brightness(104%) contrast(103%);
 }
 
@@ -131,7 +131,7 @@
 }
 
 .alert-close {
-  margin-left: 15px;
+  margin-left: 1rem;
   float: right;
 }
 
@@ -147,8 +147,8 @@
 }
 
 .spinner > div {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: #fff;
 
   border-radius: 100%;
