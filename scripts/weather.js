@@ -61,12 +61,12 @@ function renderForecast( data ) {
 		day.appendChild( icon );
 
 		const dayTime = document.createElement( 'div' );
-		dayTime.innerText = `${ Math.round( element.temp.day ) } °C`;
+		dayTime.innerText = `${ Math.round( element.temp.day ) }°C`;
 		dayTime.classList.add( 'daytime' );
 		day.appendChild( dayTime );
 
 		const night = document.createElement( 'div' );
-		night.innerText = `${ Math.round( element.temp.night ) } °C`;
+		night.innerText = `${ Math.round( element.temp.night ) }°C`;
 		day.appendChild( night );
 
 		forecast.appendChild( day );

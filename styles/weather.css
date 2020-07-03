@@ -53,11 +53,12 @@
 
 .now-temperature {
   display: flex;
+  width: 100%;
 }
 
 .big-value {
   font-size: 120px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .measurement {
@@ -185,10 +186,19 @@
 }
 
 @media screen and (max-width: 530px) {
+ .weather {
+   padding: 0;
+ }
+
+ .big-value {
+  font-size: 100px;
+  margin-left: 5px;
+}
+
  .measurement {
-   width: 60px;
-   white-space: nowrap;      /*keep text on one line */
-   overflow: hidden;         /*prevent text from being shown outside the border */
-   text-overflow: ellipsis;
+   width: 28px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: clip;
  }
 }
