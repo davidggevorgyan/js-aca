@@ -193,12 +193,5 @@
  .big-value {
   font-size: 100px;
   margin-left: 5px;
-}
-
- .measurement {
-   width: 28px;
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: clip;
  }
 }
