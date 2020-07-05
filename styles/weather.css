@@ -95,6 +95,7 @@
 }
 /* Background section */
 .bg-lazy {
+  background-size: cover;
   height: 100vh;
   width: 100vw;
   transition: opacity 1s ease-out;
@@ -174,7 +175,7 @@
   }
 }
 
-@media screen and (max-width: 900px) {
+@media (max-width: 1024px) {
   .weather {
     padding: 0;
   }
@@ -185,13 +186,13 @@
   }
 
   .weather-block {
-    transform: translateY(50%);
+    transform: translateY(25%);
   }
 }
 
-@media screen and (max-width: 530px) {
+@media (max-width: 640px) {
   .weather-block {
-    transform: translateY(50%);
+    transform: translateY(25%);
   }
   .big-value {
     font-size: 6.5rem;
