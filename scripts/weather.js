@@ -5,9 +5,9 @@ function clearLoader() {
 function showErrorBanner( error ) {
 	if ( error.PERMISSION_DENIED ) {
 		clearLoader();
-		document.querySelector( '.weather-block' ).innerText = 'This application requires access to your geolocation';
-		document.querySelector( '.weather-block' ).style.textAlign = 'center';
-		document.querySelector( '.weather-block' ).style.height = '50%';
+		document.querySelector( '.weather' ).innerText = 'This application requires access to your geolocation';
+		document.querySelector( '.weather' ).style.textAlign = 'center';
+		document.querySelector( '.weather' ).style.height = '50%';
 	}
 	document.querySelector( '.alert-text' ).innerText = error.message;
 	document.querySelector( '.alert' ).style.visibility = 'visible';
