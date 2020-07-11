@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
 h1 {
   margin: 0 0;
@@ -12,7 +11,7 @@ p {
 }
 
 a {
-  text-decoration:none;
+  text-decoration: none;
 }
 
 .main {
@@ -33,20 +32,20 @@ a {
   margin-bottom: auto;
   display: block;
   border-radius: 50%;
-  opacity: 0.6;
-  transition: opacity 3.5s ease-in-out;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .avatar:hover {
-  opacity: 1;
-  transition: .5s;
+  opacity: 0.8;
+  transition: 0.5s;
 }
 
 .bio {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   max-width: 500px;
   margin: 10px 30px;
 }
@@ -56,9 +55,10 @@ a {
 }
 
 .icon {
-    height: 52px;
+  height: 52px;
 }
 
 .icon:hover {
-  filter: invert(53%) sepia(67%) saturate(2532%) hue-rotate(158deg) brightness(90%) contrast(102%);
+  filter: invert(53%) sepia(67%) saturate(2532%) hue-rotate(158deg)
+    brightness(90%) contrast(102%);
 }
